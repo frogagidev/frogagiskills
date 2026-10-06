@@ -1,0 +1,5 @@
+interface:
+  display_name: "Build Graph"
+  short_description: "Implement the result of /spec and /slice in code."
+policy:
+  allow_implicit_invocation: false

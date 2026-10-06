@@ -1,4 +1,6 @@
-# mattpocock-skills
+# workbench-skills
+
+> Entries for 0.1.0 onwards are Workbench Skills. Everything below the `1.x` headings is the upstream `mattpocock/skills` changelog, kept for history; old skill names there map to new ones through `upstream-map.json`.
 
 ## 1.3.1
 

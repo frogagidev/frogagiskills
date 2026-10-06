@@ -1,0 +1,5 @@
+interface:
+  display_name: "Upstream Sync"
+  short_description: "Port upstream changes through the rename map"
+policy:
+  allow_implicit_invocation: false

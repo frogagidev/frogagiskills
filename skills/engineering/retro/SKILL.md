@@ -42,3 +42,18 @@ You have access to several files in the repo:
 - `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
 - Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
 - Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
+
+## Weekly mode (Workbench, several repos)
+
+`/retro weekly` looks back over a week instead of one session, for every repo in
+`$env:WORKBENCH_HOME\loop\repos.json` (schedule it with Hermes cron or Task Scheduler using that literal prompt):
+
+1. Per repo: PRs merged or closed in the last 7 days, issues labelled `blocked` or `needs-human`, and review rounds per
+   PR (`gh pr list --state all --search "updated:>=<date>"`).
+2. Find patterns: repeated failure signatures, acceptance criteria that couldn't be verified, skills that were ignored or
+   misread, slow or expensive runs, review findings that recur.
+3. Pick **at most three** changes, each in the categories above, each naming the file to change (a skill, `AGENTS.md`,
+   a coding standard, a check, `routing.yaml`) and the evidence.
+4. Open one issue per change in the relevant repo, labelled `harness`, `risk:low`, and **not** `ready-for-agent`: the
+   user decides.
+5. Report five lines: issues merged, first-pass approval rate, blocked count, notable cost, proposals filed.

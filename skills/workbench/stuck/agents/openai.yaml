@@ -1,0 +1,3 @@
+interface:
+  display_name: "Stuck"
+  short_description: "Short second opinion when a failure repeats"
