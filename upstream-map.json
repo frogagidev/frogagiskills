@@ -1,7 +1,7 @@
 {
   "$comment": "How every upstream (mattpocock/skills) path maps into this repo. Used by the upstream-sync skill; see .agents/adr/0005-upstream-sync-via-map.md. Values: a local path, 'merged-into:<skill>', or 'dropped'.",
   "upstream": "https://github.com/mattpocock/skills",
-  "last_synced_sha": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+  "last_synced_sha": "7a030a8b0dcaa601bb0dda9aaf174affb3d61145",
   "names": {
     "ask-matt": "ask-workbench",
     "setup-matt-pocock-skills": "setup-workbench",
