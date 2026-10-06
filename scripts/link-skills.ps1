@@ -82,5 +82,5 @@ foreach ($dest in $dests) {
     }
 }
 
-Write-Host "`nHermes: put these under skills.external_dirs in every profile's config.yaml" -ForegroundColor Cyan
+Write-Host "`nHermes: put these under skills.external_dirs in the Workbench profiles only (workbench, builder); never the default or other profiles" -ForegroundColor Cyan
 foreach ($dir in $sources) { if (Test-Path -LiteralPath $dir) { Write-Host ("  - " + ($dir -replace '\\', '/')) } }
