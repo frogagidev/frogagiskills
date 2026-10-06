@@ -17,7 +17,7 @@ Reach for it when the next thing blocking you is a trip through a dashboard:
 | A project has to move from state A to state B once | Walks the transition and reports what it could not do |
 | You are about to write those steps into a README | Writes an executable version instead, which fails visibly when a step goes stale |
 
-Don't reach for it to *decide* what to build; for that, [grill-with-docs](https://aihero.dev/skills-grill-with-docs) and [to-spec](https://aihero.dev/skills-to-spec) are the tools.
+Don't reach for it to *decide* what to build; for that, [shape](../engineering/shape.md) and [spec](../engineering/spec.md) are the tools.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Partly, and less than the launch reactions assumed. It reads the repo before it 
 
 **Where does it sit in the workflow, after grilling and the spec?**
 
-Nowhere in particular. It's a standalone, not a chain step. The common guess is `/grill-with-docs → /to-spec → /wizard`, and that sequence is fine, but the trigger is a manual procedure showing up, which can happen at any point: before you start, mid-build, or long after ship. It also works as a discovery tool. Scoping finds the hidden prerequisites of a task, like the three API keys you hadn't thought about, before you commit to the work.
+Nowhere in particular. It's a standalone, not a chain step. The common guess is `/shape → /spec → /wizard`, and that sequence is fine, but the trigger is a manual procedure showing up, which can happen at any point: before you start, mid-build, or long after ship. It also works as a discovery tool. Scoping finds the hidden prerequisites of a task, like the three API keys you hadn't thought about, before you commit to the work.
 
 **Does it work outside Claude Code?**
 
@@ -95,4 +95,4 @@ It did. It's now model-invoked, so the agent reaches for it unprompted when it h
 
 ## Where it fits
 
-`wizard` is a reach-for-it-anytime standalone, sitting at the line where automation stops and a human has to click. Its nearest neighbour is [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills), because both exist to get a repo into a working state. That one configures this skill set, and `wizard` generates a setup path for everything else. It also pairs with [implement](https://aihero.dev/skills-implement): when a build lands a feature that needs credentials or a manual cutover, a wizard covers the steps only a human can do. When you're unsure which skill fits the moment, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+`wizard` is a reach-for-it-anytime standalone, sitting at the line where automation stops and a human has to click. Its nearest neighbour is [setup-workbench](../engineering/setup-workbench.md), because both exist to get a repo into a working state. That one configures this skill set, and `wizard` generates a setup path for everything else. It also pairs with [implement](../engineering/build.md): when a build lands a feature that needs credentials or a manual cutover, a wizard covers the steps only a human can do. When you're unsure which skill fits the moment, [ask-workbench](../engineering/ask-workbench.md) routes you.

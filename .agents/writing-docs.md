@@ -22,7 +22,7 @@ Four sections make a page worth reading: `What it does`, `When to reach for it`,
 
 ## What it does
 
-One or two plain-language paragraphs. Lead with the skill's one-sentence job, then state the **defining constraint**: the single fact that makes this skill behave differently from the obvious default (for `to-spec`: it does not interview the user again, it synthesises what is already known). Write it as a plain declarative sentence, never a labelled aside like "The defining constraint:" or "The key thing:"; the formula reads as filler. This line is the most valuable on the page; never omit it.
+One or two plain-language paragraphs. Lead with the skill's one-sentence job, then state the **defining constraint**: the single fact that makes this skill behave differently from the obvious default (for `spec`: it does not interview the user again, it synthesises what is already known). Write it as a plain declarative sentence, never a labelled aside like "The defining constraint:" or "The key thing:"; the formula reads as filler. This line is the most valuable on the page; never omit it.
 
 ## When to reach for it
 
@@ -33,7 +33,7 @@ How and when you reach for the skill, in two beats that are both effectively alw
 
 ## Prerequisites
 
-Optional: include only when the skill needs something in place to be functional; omit the heading entirely otherwise. Covers: a **workspace it writes into** (a stateful skill like `grill-with-docs` writes `GLOSSARY.md` and ADRs; `teach` builds a whole directory, so say what it writes and where), **prior setup** (`triage`/`to-spec`/`to-tickets` need `setup-matt-pocock-skills` to have configured an issue tracker), or **repo-specific tooling**. A stateless skill that runs anywhere has no prerequisites, so drop the section.
+Optional: include only when the skill needs something in place to be functional; omit the heading entirely otherwise. Covers: a **workspace it writes into** (a stateful skill like `shape` writes `GLOSSARY.md` and ADRs; `teach` builds a whole directory, so say what it writes and where), **prior setup** (`triage`/`spec`/`slice` need `setup-workbench` to have configured an issue tracker), or **repo-specific tooling**. A stateless skill that runs anywhere has no prerequisites, so drop the section.
 
 ## <free-form middle>
 
@@ -63,9 +63,9 @@ A few bullets naming what the reader sees when the skill is doing its job. The b
 
 Always present. Situate the skill in the system in a sentence or two:
 
-- **Role.** Name it: a **chain step** (`grill-with-docs → to-spec → to-tickets → implement → code-review`), a **run-once setup** (`setup-matt-pocock-skills`), **periodic maintenance** (`improve-codebase-architecture`, "every few days"), or a **reach-for-it-anytime standalone** (`diagnosing-bugs`, `prototype`, `handoff`). A standalone's map is one honest sentence, which is far better than omitting the section.
+- **Role.** Name it: a **chain step** (`shape → spec → slice → implement → review`), a **run-once setup** (`setup-workbench`), **periodic maintenance** (`architecture-survey`, "every few days"), or a **reach-for-it-anytime standalone** (`debug`, `prototype`, `handoff`). A standalone's map is one honest sentence, which is far better than omitting the section.
 - **Neighbours.** The one or two siblings that matter, each with a because-clause, linked absolutely.
-- **The map.** Point to [ask-matt](https://aihero.dev/skills-ask-matt), the router over the whole set, so this page stays a node and never has to redraw the graph.
+- **The map.** Point to [ask-workbench](https://aihero.dev/skills-ask-workbench), the router over the whole set, so this page stays a node and never has to redraw the graph.
 
 </page-template>
 
@@ -85,7 +85,7 @@ Always present. Situate the skill in the system in a sentence or two:
 - `## What it does` states the defining constraint, as plain prose rather than a labelled aside.
 - The page names no author and quotes no author: every claim stands on its own.
 - `## When to reach for it` states invocation mode and the trigger boundary.
-- `## Where it fits` names the role and links to `ask-matt`.
+- `## Where it fits` names the role and links to `ask-workbench`.
 - A prerequisite (workspace, prior setup, tooling) is stated where one exists, and the section is absent where none does.
 - The middle surfaces the leading word.
 - Every AI Coding Dictionary term the page uses is spelt the dictionary's way, and its first use (and only its first use) links to the dictionary entry.
