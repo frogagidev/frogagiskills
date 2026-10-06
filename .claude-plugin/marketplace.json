@@ -1,22 +1,23 @@
 {
-  "name": "mattpocock",
+  "name": "workbench",
   "owner": {
-    "name": "Matt Pocock",
-    "url": "https://www.aihero.dev"
+    "name": "frogagidev",
+    "url": "https://github.com/frogagidev"
   },
-  "description": "Matt Pocock's skills for real engineering, as an installable Claude Code plugin.",
+  "description": "Workbench Skills as an installable Claude Code plugin.",
   "plugins": [
     {
-      "name": "mattpocock-skills",
+      "name": "workbench-skills",
       "source": "./",
-      "description": "Matt Pocock's agent skills for real engineering (grilling, spec/ticket flows, TDD, code review, domain modelling and more).",
+      "description": "Workbench Skills: shape, spec, slice, build, review and the Workbench loop, migration and design flows.",
       "category": "engineering",
       "keywords": [
         "engineering",
         "skills",
+        "workflow",
         "tdd",
         "review",
-        "interview"
+        "multi-harness"
       ]
     }
   ]

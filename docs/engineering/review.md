@@ -13,7 +13,7 @@ Type `/review`, or the agent reaches for it automatically when you ask to review
 | A diff exists and you want to know if it is built right *and* is the right thing | `review` |
 | You want bugs hunted in the diff: null paths, races, off-by-one | Claude Code's own built-in review, not this one (see the name clash below) |
 | Nothing is written yet and you want it written test-first | [tdd](../engineering/tdd.md) |
-| A whole spec needs building, review included | [implement](../engineering/build.md), which calls this skill itself |
+| A whole spec needs building, review included | [build](../engineering/build.md), which calls this skill itself |
 | The whole codebase has drifted, not one diff | [architecture-survey](../engineering/architecture-survey.md) |
 | Something is broken and you do not know why | [debug](../engineering/debug.md) |
 
@@ -51,7 +51,7 @@ The **smell baseline** sits under the repo's standards. It is twelve code smells
 
 This is the most reported problem with the skill, and it is not fixed. Claude Code ships its own `/review`, which does something different: it hunts bugs in the diff, where this one checks spec compliance and repo standards. When you install this library, one of them wins, and which one depends on how you installed:
 
-- **Plugin marketplace.** Every skill gets a `mattpocock-skills:` prefix, and the built-in becomes hard to reach at the unqualified name.
+- **Plugin marketplace.** Every skill gets a `workbench-skills:` prefix, and the built-in becomes hard to reach at the unqualified name.
 - **Plain skills install.** The local file wins, and this skill shadows the built-in.
 
 One answer is to remove Claude Code's built-in skills entirely. That saves a lot of [context](https://www.aihero.dev/ai-coding-dictionary/context), and the collision stops mattering. The shadowing itself is arguably a Claude Code [harness](https://www.aihero.dev/ai-coding-dictionary/harness) bug (a skill author should be free to name a skill anything), so the other answer is to rename the local copy. `npx skills update` undoes an edit to the frontmatter or a renamed directory. The durable workaround users report is to fork the skill to a new name and drop `review` from the managed set. Keep a note of the commit you forked from so you can re-sync by hand.
@@ -62,7 +62,7 @@ This is a known open bug. Several people have reproduced it, in more than one ha
 
 **Should I run it in the same [session](https://www.aihero.dev/ai-coding-dictionary/session) that wrote the code?**
 
-Prefer a fresh one. As one reader put it: "Same context reviewing itself isn't review, it's confirmation bias with a slash command." An agent that reviews in the authoring session has every assumption that shaped the code in its context. An independent reviewer would not have that context. This is also why people ask for [implement](../engineering/build.md) without its built-in review step, because that step runs the review inside the session that just wrote the diff. The independent version is to invoke `/review` yourself from a clean session.
+Prefer a fresh one. As one reader put it: "Same context reviewing itself isn't review, it's confirmation bias with a slash command." An agent that reviews in the authoring session has every assumption that shaped the code in its context. An independent reviewer would not have that context. This is also why people ask for [build](../engineering/build.md) without its built-in review step, because that step runs the review inside the session that just wrote the diff. The independent version is to invoke `/review` yourself from a clean session.
 
 **After every ticket, or once at the end?**
 
@@ -92,7 +92,7 @@ No. It diffs `<fixed-point>...HEAD`. The three-dot form measures from the merge-
 
 `review` is the review step near the tail of the build chain: `shape → spec → slice → implement → review → retro`. It also stands alone on any branch or PR you point it at.
 
-- [implement](../engineering/build.md) is the closest neighbour. It drives the build and calls this skill as its own closing review before committing. [build-graph](../engineering/build-graph.md) does the same once, over the whole integration branch.
+- [build](../engineering/build.md) is the closest neighbour. It drives the build and calls this skill as its own closing review before committing. [build-graph](../engineering/build-graph.md) does the same once, over the whole integration branch.
 - [retro](../engineering/retro.md) comes after it and tunes it. When a session shows the review missing a class of mistake, `retro` proposes the check or the `CODING_STANDARDS.md` rule the Standards axis then reads.
 - [pr](../engineering/pr.md) writes the pull request body once the reviewed work goes up.
 - [spec](../engineering/spec.md) and [slice](../engineering/slice.md) produce the document the Spec axis checks against, so a vague spec makes that axis vague.

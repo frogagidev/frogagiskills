@@ -32,7 +32,7 @@ Not blindly, and that is the point of stating it. The agent that wrote the chang
 
 **Does it open the PR for me?**
 
-No. `pr` covers only the body. [implement](../engineering/build.md) ends by committing to the current branch. Requests for a skill or option that opens the PR (a `/to-pr`, or `build` opening a PR instead of committing) are still open proposals. One user's workaround is a one-sentence local override of `build` that tells it to open a PR. [build-graph](../engineering/build-graph.md) is the exception: it opens a draft PR when your issue tracker closes work through PRs or when you ask for one. Because `pr` is model-invoked, the agent uses this shape for the body whenever you ask it to open a PR.
+No. `pr` covers only the body. [build](../engineering/build.md) ends by committing to the current branch. Requests for a skill or option that opens the PR (a `/to-pr`, or `build` opening a PR instead of committing) are still open proposals. One user's workaround is a one-sentence local override of `build` that tells it to open a PR. [build-graph](../engineering/build-graph.md) is the exception: it opens a draft PR when your issue tracker closes work through PRs or when you ask for one. Because `pr` is model-invoked, the agent uses this shape for the body whenever you ask it to open a PR.
 
 **Won't it just produce another wall of text and diagrams?**
 
@@ -74,6 +74,6 @@ Not by itself. One user's approach is a standing instruction in the repo's agent
 `pr` comes between review and retro when the build ships as a pull request: `spec → slice → implement → review → pr → retro`. It is model-invoked, so it also fires on its own any time the agent writes a PR body outside that chain.
 
 - [review](../engineering/review.md) runs before it, because a PR body should describe a diff that has already been reviewed.
-- [implement](../engineering/build.md) produces the commits the body describes.
+- [build](../engineering/build.md) produces the commits the body describes.
 
 [ask-workbench](../engineering/ask-workbench.md) routes across the whole set when you are unsure which skill the situation wants.

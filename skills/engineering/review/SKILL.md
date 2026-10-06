@@ -85,3 +85,20 @@ A change can pass one axis and fail the other:
 - Code that does exactly what the issue asked but breaks the project's conventions → **Spec pass, Standards fail.**
 
 Reporting them separately stops one axis from masking the other.
+
+## Workbench loop mode (cross-vendor reviewer)
+
+When the Workbench loop starts you as the **reviewer** (headless, in a fresh worktree of a PR branch), you run on a
+different model vendor from the builder and share none of its history. Run the two axes above with the PR's base as
+the fixed point and its linked issue (`Closes #n`) as the spec, plus:
+
+1. **You may not edit source files.** Write only inside `.agent/`. A reviewer that changes source is overruled.
+2. Re-run the gate yourself (`pwsh scripts/verify.ps1`); record pass or fail.
+3. Check every acceptance criterion: met, not met, or can't verify, each with evidence (test name, command output,
+   screenshot path). For UI changes, capture screenshots at 320, 768 and 1440 px into `.agent/screens/`, and call the
+   Skill tool with `design-review` when the issue is `type:design`.
+4. Decide: `approve` (every AC met, gate passes, no blocking finding), `changes` (specific, fixable, numbered items), or
+   `human` (judgement call, risky area, or key ACs unverifiable).
+5. Write `.agent/verdict.json` (`{"verdict":"approve|changes|human","pr":<pr>,"issue":<n>,"gate":"pass|fail"}`) and
+   `.agent/verdict.md`: verdict line, AC table, the `## Standards` and `## Spec` reports, blocking bugs, non-blocking
+   risks, and "how to test it yourself". Don't post comments or change labels; the loop does that. Never merge.

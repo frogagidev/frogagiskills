@@ -13,7 +13,7 @@ Reach for it when the build is too big for one agent [session](https://www.aiher
 | Where you are | What to run |
 | --- | --- |
 | You haven't decided anything yet | [shape](../engineering/shape.md) first |
-| Decided, and the work fits one [context window](https://www.aihero.dev/ai-coding-dictionary/context-window) | [implement](../engineering/build.md): skip the spec |
+| Decided, and the work fits one [context window](https://www.aihero.dev/ai-coding-dictionary/context-window) | [build](../engineering/build.md): skip the spec |
 | Decided, and the work spans several sessions | `/spec`, then [slice](../engineering/slice.md) |
 | A [wayfind](../engineering/wayfind.md) map has cleared | `/spec #<map_issue>` |
 
@@ -78,4 +78,4 @@ A tracker issue may not return a very large spec in full, and there is no local 
 shape → spec → slice → implement → review → retro
 ```
 
-Upstream, [shape](../engineering/shape.md) makes the decisions that this skill only records, and a finished [wayfind](../engineering/wayfind.md) map joins the chain here. Downstream, [slice](../engineering/slice.md) cuts the spec into tracer-bullet tickets for [implement](../engineering/build.md) to build. When you're unsure which skill or flow fits, [ask-workbench](../engineering/ask-workbench.md) routes you.
+Upstream, [shape](../engineering/shape.md) makes the decisions that this skill only records, and a finished [wayfind](../engineering/wayfind.md) map joins the chain here. Downstream, [slice](../engineering/slice.md) cuts the spec into tracer-bullet tickets for [build](../engineering/build.md) to build. When you're unsure which skill or flow fits, [ask-workbench](../engineering/ask-workbench.md) routes you.

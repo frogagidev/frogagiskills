@@ -53,7 +53,7 @@ The report ends with a **Top recommendation**, the candidate it would do first. 
 
 ## What happens after you pick one
 
-When you pick a candidate, a [grilling](../productivity/interview.md) session starts on it. It covers the constraints, what goes behind the seam, which tests survive, and what the deepened interface should look like. The output of that session is a decision, not a diff. From there the normal flow applies: take the decision into [spec](../engineering/spec.md), then [slice](../engineering/slice.md), then [implement](../engineering/build.md).
+When you pick a candidate, a [interview](../productivity/interview.md) session starts on it. It covers the constraints, what goes behind the seam, which tests survive, and what the deepened interface should look like. The output of that session is a decision, not a diff. From there the normal flow applies: take the decision into [spec](../engineering/spec.md), then [slice](../engineering/slice.md), then [build](../engineering/build.md).
 
 ## Common questions
 
@@ -107,7 +107,7 @@ The skill does not ship a good answer. People often ask for a `TYPESCRIPT.md` wi
 `architecture-survey` is **periodic maintenance**. You run it every few days, outside any chain, to queue up work, not to do it. Its neighbours:
 
 - [module-design](../engineering/module-design.md) owns the depth-and-seam vocabulary that every candidate uses.
-- [grilling](../productivity/interview.md) walks the decision tree after you choose a candidate.
+- [interview](../productivity/interview.md) walks the decision tree after you choose a candidate.
 - [domain-language](../engineering/domain-language.md) keeps `GLOSSARY.md` and the ADRs current as you make the decision.
 
 Its output is an idea, which goes back into the main build flow at [shape](../engineering/shape.md) or [spec](../engineering/spec.md). Its counterpart at the end of the main flow is [retro](../engineering/retro.md). This skill improves the code the agent works in, and `retro` improves the environment around it (checks, standards, steering files) after a build. For which skill fits a situation, [ask-workbench](../engineering/ask-workbench.md) is the router over the whole set.

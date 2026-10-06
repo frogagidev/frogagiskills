@@ -1,0 +1,5 @@
+interface:
+  display_name: "Migrate"
+  short_description: "Bring an existing project into the Workbench"
+policy:
+  allow_implicit_invocation: false

@@ -4,7 +4,7 @@ description: "Configure this repo for the engineering skills: set up its issue t
 disable-model-invocation: true
 ---
 
-# Setup Matt Pocock's Skills
+# Setup Workbench
 
 Scaffold the per-repo configuration that the engineering skills assume:
 
@@ -26,14 +26,14 @@ Look at the current repo to understand its starting state. Read whatever exists;
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/`: does this skill's prior output already exist?
 - `.scratch/`: a sign that a local-markdown issue tracker convention is already in use
-- Is the `triage` skill installed? (a `triage` skill folder alongside this one, or `triage` in your available skills.) This decides whether Section B runs at all.
+- Workbench pieces: `scripts/verify.ps1` (the gate), `.agents/` (skills, `mcp.json`, `policy.json`), `.github/labels.json`, and whether `$env:WORKBENCH_HOME` is set (a Workbench machine). These decide Section D.
 - Monorepo signals: a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. These are present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
 
 ### 2. Present findings and ask
 
 Summarise what's present and what's missing. Then take the sections in order. One section, one answer, then the next.
 
-Lead each section with the recommended answer so the user can accept it in a word. Give a one-line explainer only when the choice genuinely branches; skip the section entirely when exploration already settled it (Section B when `triage` isn't installed, Section C when there's no monorepo).
+Lead each section with the recommended answer so the user can accept it in a word. Give a one-line explainer only when the choice genuinely branches; skip the section entirely when exploration already settled it (Section C when there's no monorepo, Section D when every Workbench piece is already present).
 
 **Section A: Issue tracker.**
 
@@ -48,13 +48,15 @@ Default posture: these skills were designed for GitHub. If a `git remote` points
 
 Record the choice in `docs/agents/issue-tracker.md`. The GitHub and GitLab templates carry a "PRs as a request surface" flag, defaulted **off**. Leave it off and don't raise it: a user who wants external PRs in the triage queue can flip the flag in the file later.
 
-**Section B: Triage label vocabulary.** Skip this section entirely if the `triage` skill isn't installed (exploration told you), since an uninstalled skill needs no labels.
+**Section B: Label vocabulary.** Always runs: `slice`, `triage` and the Workbench loop all apply these labels.
 
 If it is installed, ask exactly one question:
 
 > Do you want to keep the default triage labels? (recommended: **yes**)
 
 The defaults are the five canonical roles, each label string equal to its name: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. On **yes**, write them as-is. Only if the user says no, usually because their tracker already uses other names (e.g. `bug:triage` for `needs-triage`), collect the overrides so `triage` applies existing labels instead of creating duplicates.
+
+**Section D: Workbench pieces.** Only when exploration found some missing. Offer to copy the missing pieces from `$env:WORKBENCH_HOME/templates/project` without overwriting anything (`scripts/verify.ps1`, `scripts/sync.mjs`, `.agents/`, `.github/`), then run `node scripts/sync.mjs`. Creating the labels on GitHub is an external action: show the command (`gh label create <name> --color <hex> --description <text> --force` per entry in `.github/labels.json`) and run it only after the user says yes. For a brand-new project, point to the `new-project` skill instead.
 
 **Section C: Domain docs.** Default to **single-context** (one `GLOSSARY.md` + `docs/adr/` at the repo root). This fits almost every repo; write it without asking.
 
@@ -99,7 +101,7 @@ The block:
 [one-line summary of layout: "single-context" or "multi-context"]. See `docs/agents/domain.md`.
 ```
 
-Include the `### Triage labels` sub-block, and write `docs/agents/triage-labels.md`, only when `triage` is installed and Section B ran. When it isn't, both are omitted.
+Always include the `### Triage labels` sub-block and write `docs/agents/triage-labels.md` (it also carries the Workbench loop labels).
 
 Then write the docs files using the seed templates in this skill folder as a starting point:
 

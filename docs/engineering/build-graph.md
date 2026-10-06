@@ -11,9 +11,9 @@ You invoke this by typing `/build-graph`, and the agent won't reach for it on it
 | Your situation | Reach for |
 | --- | --- |
 | A spec, split into tickets with blocking edges, that you want landed in one run | `/build-graph` |
-| One ticket at a time, in your own [context window](https://www.aihero.dev/ai-coding-dictionary/context-window), [clearing](https://www.aihero.dev/ai-coding-dictionary/clearing) between tickets | [implement](../engineering/build.md) |
+| One ticket at a time, in your own [context window](https://www.aihero.dev/ai-coding-dictionary/context-window), [clearing](https://www.aihero.dev/ai-coding-dictionary/clearing) between tickets | [build](../engineering/build.md) |
 | A spec that isn't split into tickets yet | [slice](../engineering/slice.md) first |
-| A small piece of work with no real graph to it | [implement](../engineering/build.md) directly |
+| A small piece of work with no real graph to it | [build](../engineering/build.md) directly |
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ A worktree holds only what git tracks. Tests that read gitignored fixtures, loca
 
 ## Where it fits
 
-`build-graph` is the build step of the main chain, as the parallel alternative to running [implement](../engineering/build.md) once per ticket:
+`build-graph` is the build step of the main chain, as the parallel alternative to running [build](../engineering/build.md) once per ticket:
 
 ```txt
 shape → spec → slice → build-graph → retro

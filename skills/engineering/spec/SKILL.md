@@ -16,7 +16,7 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 Check with the user that these seams match their expectations.
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+3. Write the spec using the template below, then publish it to the project issue tracker as one issue labelled `type:spec`. **Never** label a spec `ready-for-agent`: the Workbench loop builds `ready-for-agent` issues, and a spec is an input to `slice`, not a work order. No further triage needed.
 
 <spec-template>
 
@@ -39,6 +39,23 @@ A LONG, numbered list of user stories. Each user story should be in the format o
 </user-story-example>
 
 This list of user stories should be extremely extensive and cover all aspects of the feature.
+
+## Acceptance Criteria
+
+Numbered, observable, testable statements of done. Each one must be checkable by a test, a command or a screenshot. `slice` copies the relevant ones into each slice.
+
+- AC-1: ...
+- AC-2: ...
+
+## Non-goals
+
+Explicitly out of scope, numbered so reviewers can cite them.
+
+- NG-1: ...
+
+## Risk
+
+`risk:low`, `risk:med` or `risk:high`, with one line on why (data, money, security, migrations, external calls). The loop only builds unattended up to the risk band the project allows.
 
 ## Implementation Decisions
 
@@ -63,10 +80,6 @@ A list of testing decisions that were made. Include:
 - A description of what makes a good test (only test external behavior, not implementation details)
 - Which modules will be tested
 - Prior art for the tests (i.e. similar types of tests in the codebase)
-
-## Out of Scope
-
-A description of the things that are out of scope for this spec.
 
 ## Further Notes
 

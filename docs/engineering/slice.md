@@ -12,7 +12,7 @@ You invoke this by typing `/slice`. The [agent](https://www.aihero.dev/ai-coding
 | --- | --- |
 | You have a spec issue and the build spans several sessions | `/slice`, or `/slice #<spec_issue>` |
 | The plan is only in the conversation, never written up | `/slice` reads the thread directly, no spec needed |
-| The whole change fits in one context window | [implement](../engineering/build.md), skip the tickets |
+| The whole change fits in one context window | [build](../engineering/build.md), skip the tickets |
 | Nothing is decided yet | [shape](../engineering/shape.md), then [spec](../engineering/spec.md) |
 | A [wayfind](../engineering/wayfind.md) map has cleared | [spec](../engineering/spec.md) first, to collapse the map, then `/slice` |
 
@@ -56,7 +56,7 @@ Where even the batches can't stay green alone, they share an integration branch 
 ## Common questions
 
 **It produced twelve tickets for a three-line change.**
-Over-decomposition is the most reported problem with this skill, and many users see it. The [model](https://www.aihero.dev/ai-coding-dictionary/model) defaults to atomic units and loses the grouping that would make them meaningful. The quiz step is where you fix this. Ask it to merge tickets, and it will. There is also a lower limit. If the whole change fits in one context window, you don't need this skill at all. Go straight to [implement](../engineering/build.md).
+Over-decomposition is the most reported problem with this skill, and many users see it. The [model](https://www.aihero.dev/ai-coding-dictionary/model) defaults to atomic units and loses the grouping that would make them meaningful. The quiz step is where you fix this. Ask it to merge tickets, and it will. There is also a lower limit. If the whole change fits in one context window, you don't need this skill at all. Go straight to [build](../engineering/build.md).
 
 **The tickets came out one per layer: all the schema in one, all the API in another.**
 This is the failure the vertical-slice rule is written against, and the skill still produces it sometimes. Catch it at the quiz step by asking one question per ticket: what can I demo when this is done? A ticket with no answer is a horizontal slice. Some people add a "demo path" line to each ticket for this reason, and report that it pushes the model toward vertical slices.
@@ -77,7 +77,7 @@ A very large spec can outgrow what a tracker issue serves back cleanly. There is
 The template asks for criteria and says nothing about whether they can fail, so this happens. Three shapes recur: a criterion already true at the base commit, a criterion that only work in another ticket can satisfy, and one that restates the request rather than deriving from the artifact. Vertical slicing prevents most of it, because a slice that delivers new behaviour fails at the base commit by construction. The check is still worth doing by hand. For each criterion, name the observation that would show it false, and confirm it fails at the commit the implementer starts from.
 
 **The tickets are published. How do I actually run them?**
-The skill stops at the artifact, and there is no auto-dispatch mode. Dispatch is manual: look at the board, count the tickets with no open blockers, and open that many agent sessions. Give each ticket a fresh context, and clear between them. [implement](../engineering/build.md) does not reliably close or check off the ticket when it finishes, on GitHub or in local markdown, so you update the ticket's state yourself.
+The skill stops at the artifact, and there is no auto-dispatch mode. Dispatch is manual: look at the board, count the tickets with no open blockers, and open that many agent sessions. Give each ticket a fresh context, and clear between them. [build](../engineering/build.md) does not reliably close or check off the ticket when it finishes, on GitHub or in local markdown, so you update the ticket's state yourself.
 
 ## It's working if
 
@@ -96,4 +96,4 @@ The skill stops at the artifact, and there is no auto-dispatch mode. Dispatch is
 shape → spec → slice → implement → review → retro
 ```
 
-Upstream is [spec](../engineering/spec.md), which hands it a settled spec to slice against. Keep both in one context window, with no clear between them. Downstream is [implement](../engineering/build.md), which builds one ticket per fresh session, driving [tdd](../engineering/tdd.md) for the tests and closing with [review](../engineering/review.md). [build-graph](../engineering/build-graph.md) is the other way down. It reads the same blocking edges as a task graph and builds every ready ticket in parallel on one integration branch. When you're unsure which skill or flow fits, [ask-workbench](../engineering/ask-workbench.md) routes you.
+Upstream is [spec](../engineering/spec.md), which hands it a settled spec to slice against. Keep both in one context window, with no clear between them. Downstream is [build](../engineering/build.md), which builds one ticket per fresh session, driving [tdd](../engineering/tdd.md) for the tests and closing with [review](../engineering/review.md). [build-graph](../engineering/build-graph.md) is the other way down. It reads the same blocking edges as a task graph and builds every ready ticket in parallel on one integration branch. When you're unsure which skill or flow fits, [ask-workbench](../engineering/ask-workbench.md) routes you.

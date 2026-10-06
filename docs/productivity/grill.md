@@ -71,6 +71,6 @@ More than for most skills. Grilling depends on the [model](https://www.aihero.de
 
 `grill` is a **standalone you can run anywhere, on anything**. Because it is stateless, it is portable. It needs no repo, workspace, or setup, and does not assume the idea is about software. People use it for business decisions, for writing, and for what to do next: anything they cannot think through clearly on their own.
 
-Portability is the only difference from [shape](../engineering/shape.md). That skill runs the same interview, but reads a codebase to align against and records what it learns as `GLOSSARY.md` and ADRs. Both use the [grilling](../productivity/interview.md) skill underneath. `grill` is the user-invoked entry point that keeps no state.
+Portability is the only difference from [shape](../engineering/shape.md). That skill runs the same interview, but reads a codebase to align against and records what it learns as `GLOSSARY.md` and ADRs. Both use the [interview](../productivity/interview.md) skill underneath. `grill` is the user-invoked entry point that keeps no state.
 
 If what you grilled does turn out to be software, you can hand the same conversation to [spec](../engineering/spec.md) and carry on into the build flow (an option, not the point of the skill). When you're unsure which flow fits, [ask-workbench](../engineering/ask-workbench.md) routes you.
