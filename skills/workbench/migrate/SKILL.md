@@ -39,8 +39,9 @@ template (never overwriting project files) and commits on branch `workbench/migr
 
 ## Phase 5: Distil (in `<ROOT>\<name>`)
 1. Write `AGENTS.md` (≤100 lines): purpose, stack, commands, structure, hard rules, boundaries. Take only what
-   is still true from `docs/legacy-agent-setup/`; no status, phase notes or dated approvals.
-2. Move deep knowledge into `docs/` (SPEC, ARCHITECTURE, DECISIONS: one line per past decision worth keeping).
+   is still true from `docs/legacy-agent-setup/`; no status, phase notes or dated approvals. Keep the template's
+   Agent skills, Workflow and Skill guidance sections as they are.
+2. Move deep knowledge into `docs/` (SPEC, ARCHITECTURE, and an ADR in `docs/adr/` per past decision worth keeping).
    Design content → `DESIGN.md` (current state) + `design/tokens.css`.
 3. Recreate genuinely project-specific procedures as `.agents/skills/<name>/SKILL.md`. Don't copy skills the
    shared library already has.
