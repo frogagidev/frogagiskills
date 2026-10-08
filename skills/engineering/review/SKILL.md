@@ -102,3 +102,8 @@ the fixed point and its linked issue (`Closes #n`) as the spec, plus:
 5. Write `.agent/verdict.json` (`{"verdict":"approve|changes|human","pr":<pr>,"issue":<n>,"gate":"pass|fail"}`) and
    `.agent/verdict.md`: verdict line, AC table, the `## Standards` and `## Spec` reports, blocking bugs, non-blocking
    risks, and "how to test it yourself". Don't post comments or change labels; the loop does that. Never merge.
+
+**Interactive cross-vendor review** (the owner asks you to review a PR outside the loop): follow the same steps in the
+PR's worktree (or `gh pr checkout <pr> --detach`), then post the verdict with
+`gh pr comment <pr> --body-file .agent/verdict.md`. Don't use `gh pr review`: the harnesses share the owner's GitHub
+account, and GitHub rejects approvals from a PR's own author. Never merge.
