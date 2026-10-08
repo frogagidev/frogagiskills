@@ -12,7 +12,7 @@ disable-model-invocation: true
 3. Fill `AGENTS.md` (commands, structure, rules) and `docs/SPEC.md` with the user. For UI, fill `DESIGN.md` and `design/tokens.css` (or call the Skill tool with `design-explore` to choose a direction).
 4. Make `scripts/verify.ps1` real for the chosen stack (lint, typecheck, tests, build) and get it green on the empty project.
 5. Add the project to `$env:WORKBENCH_HOME\loop\repos.json` with `"enabled": false` (switch it on after 3–5 good manual runs).
-6. First commit + push. Then prompt the next step yourself, one line at a time: `setup-workbench` if `docs/agents/` or `GLOSSARY.md` are still placeholders, then `shape` for the first feature (the project's `AGENTS.md` "Skill guidance" section keeps this going in every later session).
+6. First commit + push. Then prompt the next step yourself, one line at a time: `setup-workbench` if `docs/agents/` is still a placeholder, then `shape` for the first feature (it fills `GLOSSARY.md`) (the project's `AGENTS.md` "Skill guidance" section keeps this going in every later session).
 
 ## Success
 Repo exists on GitHub (private), CI runs `verify`, `node scripts/sync.mjs --check` passes, labels present.

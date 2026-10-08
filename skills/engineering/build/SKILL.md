@@ -36,3 +36,9 @@ exclude. You may be running interactively, or **headless** in a worktree the Wor
 
 Stay inside the worktree. Never push to `main`, merge, deploy, or read secrets (`.env*`, keys). Prefer CLIs to MCP
 tools and point to log files rather than pasting them.
+
+- **One writer per folder.** If another harness may be building in this checkout, build in your own worktree:
+  `git worktree add $env:WORKBENCH_ROOT\_worktrees\<repo>\<n>-<slug> -b agent/<n>-<slug> origin/main`.
+- **Bringing a PR branch up to date:** `git fetch origin`, then `git merge origin/main`. Never rebase: rebasing needs a
+  force push, which the guard blocks. Re-run the gate after resolving conflicts.
+- Stop any dev server or browser you started before you hand back.
