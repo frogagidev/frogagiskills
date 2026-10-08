@@ -93,6 +93,8 @@ different model vendor from the builder and share none of its history. Run the t
 the fixed point and its linked issue (`Closes #n`) as the spec, plus:
 
 1. **You may not edit source files.** Write only inside `.agent/`. A reviewer that changes source is overruled.
+   Stop any dev or preview server and any browser you start before you finish: a leftover server locks the
+   worktree so it can't be cleaned up.
 2. Re-run the gate yourself (`pwsh scripts/verify.ps1`); record pass or fail.
 3. Check every acceptance criterion: met, not met, or can't verify, each with evidence (test name, command output,
    screenshot path). For UI changes, capture screenshots at 320, 768 and 1440 px into `.agent/screens/`, and call the
