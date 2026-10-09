@@ -1,6 +1,6 @@
 {
   "name": "workbench-skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Workbench Skills: shape, spec, slice, build, review and the Workbench loop, migration and design flows, for Claude Code, Codex, Hermes and Antigravity.",
   "author": {
     "name": "frogagidev",

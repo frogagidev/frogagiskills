@@ -1,5 +1,19 @@
 # workbench-skills
 
+## 0.2.0
+
+### Minor Changes
+
+- [#1](https://github.com/frogagidev/frogagiskills/pull/1) [`04dd9d2`](https://github.com/frogagidev/frogagiskills/commit/04dd9d2650b9d340021dea32d2c962a28664f46b) Thanks [@frogagidev](https://github.com/frogagidev)! - First Workbench Skills release. Skills renamed to the Workbench workflow vocabulary (`shape`, `spec`, `slice`, `build`, `build-graph`, `review`, `interview`, `domain-language`, `module-design`, `debug`, `wayfind`, `architecture-survey`, `questionnaire`, `grill`), router `ask-workbench`, setup `setup-workbench`. Workbench skills merged in (`build`, `review`, `spec`, `retro`) and added in the new `workbench/` bucket (`stuck`, `design-explore`, `design-review`, `new-project`, `migrate`, `recovery-audit`, `upstream-sync`). New `npm run check`, `scripts/link-skills.ps1`, and `upstream-map.json`.
+
+### Patch Changes
+
+- [#4](https://github.com/frogagidev/frogagiskills/pull/4) [`3a1c81e`](https://github.com/frogagidev/frogagiskills/commit/3a1c81ede4adadaed5b4c7cd7a6a300168db82a6) Thanks [@frogagidev](https://github.com/frogagidev)! - build: one writer per folder (worktrees), merge main into PR branches instead of rebasing, stop dev servers; review: interactive cross-vendor verdicts are posted as PR comments.
+
+- [#5](https://github.com/frogagidev/frogagiskills/pull/5) [`c0655ab`](https://github.com/frogagidev/frogagiskills/commit/c0655abd6312613d62449ed5d50c9cf08fbc79e8) Thanks [@frogagidev](https://github.com/frogagidev)! - review: stop servers and browsers the review starts.
+
+- [#2](https://github.com/frogagidev/frogagiskills/pull/2) [`c18e959`](https://github.com/frogagidev/frogagiskills/commit/c18e9593ee946d5015e00fa1311bd4eae0cfb6ce) Thanks [@frogagidev](https://github.com/frogagidev)! - new-project and migrate: the agent prompts the next skill itself, and Hermes trust only touches the Workbench profiles.
+
 > Entries for 0.1.0 onwards are Workbench Skills. Everything below the `1.x` headings is the upstream `mattpocock/skills` changelog, kept for history; old skill names there map to new ones through `upstream-map.json`.
 
 ## 1.3.1

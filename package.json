@@ -1,6 +1,6 @@
 {
   "name": "workbench-skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Workbench Skills: agent skills for multi-harness engineering (Claude Code, Codex, Hermes, Antigravity)",
   "repository": {
