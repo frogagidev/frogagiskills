@@ -70,11 +70,14 @@ foreach ($dest in $dests) {
         }
     }
 
-    # Remove stale junctions into this repo (skill renamed or removed).
+    # Remove stale junctions into this repo or an -ExtraSkillDirs folder (skill renamed or removed, e.g. a vendor
+    # skill taken out of the agent library): otherwise every harness keeps a broken link to it.
     if (Test-Path -LiteralPath $dest) {
         Get-ChildItem -LiteralPath $dest -Force | Where-Object { Is-Junction $_ } | ForEach-Object {
             $t = Link-Target $_
-            if ($t.StartsWith($Repo, [StringComparison]::OrdinalIgnoreCase) -and -not $skills.Contains($_.Name)) {
+            $owned = @($Repo) + @($ExtraSkillDirs | Where-Object { $_ } | ForEach-Object { [IO.Path]::GetFullPath($_) })
+            $ours = @($owned | Where-Object { $t.StartsWith($_, [StringComparison]::OrdinalIgnoreCase) }).Count -gt 0
+            if ($ours -and -not $skills.Contains($_.Name)) {
                 $path = $_.FullName
                 Act "removed stale link $($_.Name) -> $t" { & cmd /c rmdir "$path" | Out-Null }
             }
